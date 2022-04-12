@@ -1,3 +1,26 @@
 /* Import link for Bulma */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
+:root{
+    --main: #9681E6;
+    --secondary: #86B1F0;
+    --lightblue: #84DAD9;
+    --lightgreen: #86F0A9;
+    --green: #A4E677;
+}
+.hdr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--main);
+}
+
+.nav {
+    /* display: flex; */
+    padding: 1rem;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: space-between;
+}
