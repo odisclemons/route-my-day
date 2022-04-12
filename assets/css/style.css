@@ -39,19 +39,25 @@
 }
 
 .background-container {
-  background-image: url(../img/city.webp);
-  opacity: 60%;
+  background-image: url(../img/travel3.jpeg);
+  opacity: 80%;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
 .bck-div {
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
-  
+}
+
+.start-button {
+  background-color: var(--main);
+}
+
 /* style this however you like to make it fit in the page. */
 #map {
   height: 500px;
