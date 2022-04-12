@@ -1,6 +1,7 @@
 /* Import link for Bulma */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
+
 :root{
     --main: #9681E6;
     --secondary: #86B1F0;
@@ -8,6 +9,11 @@
     --lightgreen: #86F0A9;
     --green: #A4E677;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 .hdr {
     display: flex;
     flex-direction: row;
@@ -23,4 +29,32 @@
 .navbar-brand {
     display: flex;
     justify-content: space-between;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.background-container {
+  background-image: url(../img/city.webp);
+  opacity: 60%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.bck-div {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  
+/* style this however you like to make it fit in the page. */
+#map {
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
 }
