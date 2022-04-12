@@ -1,3 +1,35 @@
 /* Import link for Bulma */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
+:root {
+  --main: #9681e6;
+  --secondary: #86b1f0;
+  --lightblue: #84dad9;
+  --lightgreen: #86f0a9;
+  --green: #a4e677;
+}
+* {
+  box-sizing: border-box;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.background-container {
+  background-image: url(../img/city.webp);
+  opacity: 60%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.bck-div {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
