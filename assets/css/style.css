@@ -1,3 +1,9 @@
 /* Import link for Bulma */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
+/* style this however you like to make it fit in the page. */
+#map {
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+}
