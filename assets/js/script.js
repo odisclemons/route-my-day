@@ -4,16 +4,16 @@
 // Yelp api request
 
 
-var city1 = 'venice';
+var city = 'venice';
 var businesses = [];
-var wayPoints = [];
+var places = [];
 
 var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
+var SearchBox = document.querySelector('#Search-box');
+SearchBox.value = "Venice"
 
 var busContainer = document.getElementById('bus')
-
-var categorySelected = document.querySelector('#cat-btn');
 
 var CatList = document.querySelector('#cat-list');
 
@@ -25,11 +25,20 @@ var CatList = document.querySelector('#cat-list');
 
 var CitySearchFun = function (event) {
   event.preventDefault();
+  if(!SearchBox.value || SearchBox.value.length < 2) {
+    alert('You must specify a city.')
+    return;
+  }
 
-  var city = CitySearch.value.trim();
-  console.log(city1)
+  if(!CatList.value){
+    alert('You must specify a category.')
+    return;
+  }
 
-  city1 = city
+  city = CitySearch.value.trim();
+  console.log(city)
+
+  // city1 = city
 
   
 
@@ -49,16 +58,18 @@ CitySubmit.addEventListener('click', CitySearchFun)
 function handleAddClick(i){
   console.log(i)
   console.log(businesses[i])
-  let {latitude , longitude} = businesses[i].coordinates
+  let {latitude, longitude} = businesses[i].coordinates
 
   map = new google.maps.Map(document.getElementById("map"), {
     center: {lat: latitude, lng: longitude},
     zoom: 17,
   });
+
+  places.push(businesses[i])
 }
 
 
-function fetchApiData(term1, city1) {
+function fetchApiData(term1, city) {
 
 var bearer_token =
     "KNzo5Qc9AI4wBhsJRiQb47rkb3LmpBO6LCIrWXFTEXnO9gAH0hUhvx7Em0iYsE1AQL3_FfHiq__AJaQawUsPl8TNjN747zm7XczRFIDVYIaUAmATp_LD8gdKvmdUYnYx";
@@ -66,11 +77,11 @@ var bearer_token =
     // var city = 'toronto'
     // var term1 = 'shopping'
 
-    console.log(city1 + "in fetchApiData")
+    console.log(city + "in fetchApiData")
 
 
   var url =
-    'https://floating-headland-95050.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city1 + '&term=' + term1 ;
+    'https://floating-headland-95050.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city + '&term=' + term1 ;
     // console.log(location1)
   var bearer = "Bearer " + bearer_token;
   fetch(url, {
@@ -96,7 +107,8 @@ var bearer_token =
     // render data
     for (var i = 0; i < 20; i++) {
 
-      let {alias, url, coordinates} = data.businesses[i]
+      let {alias, url, coordinates, image_url} = data.businesses[i]
+      if(!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
 
       var newBox = `
       <div class="box">
@@ -106,6 +118,7 @@ var bearer_token =
         <h2 class="lon">${coordinates.longitude}</h2>
 
         <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
+        <div> <img src="${image_url}" /> </div>
 
     </div>
       `
@@ -140,7 +153,7 @@ var formCatList = function (event) {
 
 
 
-    fetchApiData(category, city1)
+    fetchApiData(category, city)
 }
 
 
