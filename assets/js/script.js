@@ -1,6 +1,6 @@
 
 
-/* -------------------------------------------------------------------------- */
+
 // Yelp api request
 
 
@@ -9,6 +9,10 @@ var city1 = 'venice';
 
 var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
+
+var busContainer = document.getElementById('bus')
+
+
 /* ------------------------------- Search BTN ------------------------------- */
 
 
@@ -62,14 +66,101 @@ var bearer_token =
     .then((response) => {
       return response.json();
     })
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error));
+    .then(function (data) {
+      
+      console.log(data);
+      console.log('is it working')
+
+      console.log(data.businesses[0].alias)
+   
+      console.log(data.total)
+
+      // var Name = document.createElement('h3');
+      // Name.textContent = data.businesses[0].alias;
+
+      // console.log(Name)
+      
+
+      // // 
+
+
+     
+
+      // issueContainer.appendChild(Name);
+    
+
+
+    // render data
+    for (var i = 0; i < 20; i++) {
+     
+      var Name = document.createElement('h3');
+      var web = document.createElement('p');
+      var lat = document.createElement('h2')
+      var lon = document.createElement('h2')
+      var btn = document.createElement('BUTTON');
+
+      var boxForElements = document.createElement('a');
+
+      boxForElements.classList = 'box';
+
+      Name.textContent = data.businesses[i].alias;
+      web.textContent = data.businesses[i].url;
+      lat.textContent = data.businesses[i].coordinates.latitude
+      lon.textContent = data.businesses[i].coordinates.longitude
+      btn.textContent = 'Add to list';
+
+      btn.classList = "addToList"
+      lat.classList = "lat"
+      lon.classList = "lon"
+
+      boxForElements.appendChild(Name);
+      boxForElements.appendChild(web);
+      boxForElements.appendChild(lat);
+      boxForElements.appendChild(lon);
+      boxForElements.appendChild(btn);
+
+      busContainer.appendChild(boxForElements)
+
+      // console.log(Name);
+      
+      // busContainer.append(Name);
+      // busContainer.append(web);
+      // busContainer.append(lat);
+      // busContainer.append(lon);
+    }
+    });
+
+    // .catch((error) => console.log(error));
+
+
 
 
 }
 
 
-// fetchApiData()
+    
+    /* ------------------------ click btn to add to list ------------------------ */
+
+   var CoordinatesList = [];
+
+    var AddCooridatesToList = document.getElementsByClassName('addToList');
+    AddCooridatesToList.onclick = function() {
+
+      console.log("You clicked it")
+
+      // var latCor = document.getElementsByClassName('lat');
+      // var lonCor = document.getElementsByClassName('lon');
+
+      // CoordinatesList.push(latCor);
+      // CoordinatesList.push(lonCor);
+
+      // console.log(CoordinatesList)
+
+	
+}
+
+
+
 
 /* -------------------------- select from drop down ------------------------- */
 // grab text from elemnt that is selected
@@ -97,6 +188,14 @@ categorySelected.addEventListener('click', formCatChoice);
 
 
 
+
+/* -------------------------- boxes for each search ------------------------- */
+// idenfiers in html
+
+
+
+
+
 /* -------------------------------------------------------------------------- */
 
 
@@ -114,5 +213,4 @@ categorySelected.addEventListener('click', formCatChoice);
 
 
     
-    
-  
+          
