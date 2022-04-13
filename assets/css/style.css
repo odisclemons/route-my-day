@@ -14,14 +14,19 @@
   box-sizing: border-box;
 }
 
-a {
-  color: black;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
+hr {
+  color: black;
+  border: 1px solid;
+}
+
+a {
+  color: black;
+}
+/* Classes */
 .main-header{
   display: flex;
   flex-direction: row;
@@ -46,6 +51,15 @@ html {
   display: flex;
   align-items: center;
   padding: 1rem;
+}
+
+.about-us-btn {
+  color: black;
+  background-color: #BBFAB6;
+}
+
+.about-us-btn:hover {
+  background-color: var(--main);
 }
 
 .img-container {
@@ -88,11 +102,26 @@ html {
 }
 
 .start-button {
-  background-color: var(--main);
+  background-color: #BBFAB6;
   color: black;
 }
+/* hover body button */
+.start-button:hover {
+  background-color: var(--main);
+}
 
-/* style this however you like to make it fit in the page. */
+.modal-header {
+  font-weight: 600;
+  font-size: larger;
+  columns: black;
+}
+
+.modal-text {
+  color: black;
+}
+/*   */
+
+/* ID's */
 #map {
   height: 500px;
   width: 500px;
