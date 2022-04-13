@@ -11,7 +11,7 @@ var places = [];
 var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
 var SearchBox = document.querySelector('#Search-box');
-SearchBox.value = "Venice"
+SearchBox.value = city;
 
 var busContainer = document.getElementById('bus')
 
@@ -101,25 +101,23 @@ var bearer_token =
       console.log(data.businesses[0].alias)
       businesses = data.businesses;
       $('#bus').html(null)
+      
     
 
 
     // render data
     for (var i = 0; i < 20; i++) {
 
-      let {alias, url, coordinates, image_url} = data.businesses[i]
+      let {name, url, display_phone, image_url} = data.businesses[i]
       if(!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
 
       var newBox = `
       <div class="box">
-        <h3>${alias}</h3>
-        <h2 class="lat">${coordinates.latitude}</h2>
-        <p>${url}</p>
-        <h2 class="lon">${coordinates.longitude}</h2>
+        <h3>${name}</h3>
+       <h3>Phone:${display_phone}</h3>
 
         <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
         <div> <img src="${image_url}" /> </div>
-
     </div>
       `
       $('#bus').append(newBox)
@@ -134,8 +132,7 @@ var bearer_token =
 }
 
 
-    
-    
+  
 
 
 
@@ -160,6 +157,12 @@ var formCatList = function (event) {
 
 CatList.addEventListener('change', formCatList);
 
+
+/* ------------------------------ Sortable list ----------------------------- */
+
+$( function() {
+  $( "#sortable" ).sortable();
+} );
 
 
 
