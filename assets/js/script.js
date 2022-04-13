@@ -55,6 +55,7 @@ function handleAddClick(i){
     center: {lat: latitude, lng: longitude},
     zoom: 17,
   });
+  wayPoints.push( {lat: latitude, lng: longitude})
 }
 
 
@@ -90,22 +91,24 @@ var bearer_token =
       console.log(data.businesses[0].alias)
       businesses = data.businesses;
       $('#bus').html(null)
+      
     
 
 
     // render data
     for (var i = 0; i < 20; i++) {
 
-      let {alias, url, coordinates} = data.businesses[i]
+      let {name, display_phone, image_url } = data.businesses[i]
 
       var newBox = `
       <div class="box">
-        <h3>${alias}</h3>
-        <h2 class="lat">${coordinates.latitude}</h2>
-        <p>${url}</p>
-        <h2 class="lon">${coordinates.longitude}</h2>
+        <h3>${name}</h3>
+       <h3>Phone:${display_phone}</h3>
+
+  
 
         <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
+        <div> <img src="${image_url}" </div>
 
     </div>
       `
@@ -121,8 +124,7 @@ var bearer_token =
 }
 
 
-    
-    
+  
 
 
 
@@ -147,6 +149,12 @@ var formCatList = function (event) {
 
 CatList.addEventListener('change', formCatList);
 
+
+/* ------------------------------ Sortable list ----------------------------- */
+
+$( function() {
+  $( "#sortable" ).sortable();
+} );
 
 
 
