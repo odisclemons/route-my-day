@@ -46,17 +46,14 @@ a {
   padding: 1rem;
 }
 
-.containerHearder {
-  display:flex;
-}
-
 .navbar-item { 
   display: flex;
   justify-content: space-between;
 }
 
 .hdrLogo {
-  max-width: 200px;
+  max-width: 17rem;
+  padding-left: 5rem;
 }
 
 .header-button {
