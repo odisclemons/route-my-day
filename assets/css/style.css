@@ -44,12 +44,19 @@ a {
 
 .nav {
   padding: 1rem;
-  min-height: 180px;
+}
+
+.containerHearder {
+  display:flex;
 }
 
 .navbar-item { 
   display: flex;
   justify-content: space-between;
+}
+
+.hdrLogo {
+  max-width: 200px;
 }
 
 .header-button {
