@@ -15,50 +15,69 @@
 </head>
 
 <body>
-  <header>
+  <img src="./assets/img/RMD-purple-med.png">
+  <header class="main-header">
     <nav class="navbar hdr" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <div class="navbar-item nav">
-          <img src="./assets/img/baseball_threads.gif" alt="RMD Logo">
-          <p class="nav" style="font-size: small">Where do you want to go today? </p>
-          <!-- <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28"> -->
-          <input class="input is-small nav" type="text" placeholder="Enter Destination">
-        </div>
+      <div class="navbar-item nav">
+        <container></container>
+        <img src="./assets/img/RMD-purple-med.png" alt="RMD Logo">
       </div>
     </nav>
+    <div class="header-button">
+      <button class="button is-rounded is-small about-us-btn js-modal-trigger actual-btn"
+        data-target="modal-js-example">About Us</button>
+      <button class="button is-rounded is-small about-us-btn js-modal-trigger actual-btn"
+        data-target="modal-js-example">Contact Us</button>
+      <button class="button is-rounded is-small about-us-btn js-modal-trigger actual-btn"
+        data-target="modal-js-example">Placeholder</button>
+    </div>
   </header>
 
 
   <main>
     <div class="img-container">
-      <div class="background-container" style="height: 1200px; width: 100%">
+      <div class="background-container" style="height: 1250px; width: 100%">
+        <div class="text-div">
+          <h1 class="img-header">Map My Route</h1>
+        </div>
+        <div class="text-div">
+          <p class="img-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos.</p>
+        </div>
         <div class="bck-div">
-          <button class="button is-rounded is-large start-button" id="get-started">Get Started!</button>
+          <button class="button is-rounded is-large start-button" id="get-started" href="#map"><a href="#map"> Get
+              Started!</button></a>
         </div>
       </div>
     </div>
 
-    <section class="">
-      <!--Google maps-->
-      <div id="map">
-        <h1 id="statusMessage"></h1>
+    <!---->
+    <section class="API-container">
+      <div class="instruction-container">
+        <div class="text-div">
+          <h1 class="ins-header">Fast and Easy!</h1>
+        </div>
+        <div class="text-div">
+          <p class="ins-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi consequuntur numquam perspiciatis est
+            deserunt aut.</p>
+        </div>
       </div>
       <!--Yelp-->
-      <!-- ----------------------------------------------------------------------- -->drop down
-      <div class="field has-addons">
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
-            <select name="country" id="cat-list">
 
-              <option value="Restrount">Restrount</option>
+      <!-- ------------------------------------------------------------------------->
+      <div class=""></div>
+      <div class="field has-addons">
+        <div class="control">
+          <div class="select">
+            <select name="country" id="cat-list">
+              <option value="" disabled selected hidden>Select Category</option>
+              <option value="Restaurant">Restaurant</option>
               <option value="Active Life">Active Life</option>
               <option value="Arts & Entertainment">Arts & Entertainment</option>
               <option value="Beauty & Spas">Beauty & Spas</option>
               <option value="Food">Food</option>
-              <option value="hotelstravel">hotelstravel</option>
-              <option value="nightlife">Nightlifea</option>
+              <option value="hotelstravel">Hotels</option>
+              <option value="nightlife">Night Life</option>
               <option value="shopping">Shopping</option>
-
             </select>
           </div>
         </div>
@@ -66,16 +85,43 @@
           <button type="submit" class="button is-primary" id="cat-btn">Choose</button>
         </div>
       </div>
-      <!-- ----------------------------- Search BTN ------------------------------ -->
+
+      <!------------------------------- Search BTN -------------------------------->
+
       <div class="control">
         <input class="input" type="text" id="Search-btn" placeholder="Enter Destination">
       </div>
-      <!-- ----------------------------- Submit City ----------------------------- -->
+      <!------------------------------- Submit City ------------------------------->
       <div class="control">
         <button class="button is-primary" id="Submit-btn">Submit</button>
       </div>
+
       <!-- ----------------------------------------------------------------------- -->
-      <!-- ------------------- business rendered from the list ------------------- -->
+        <!-- -----------------------------------------------------------------------drop down -->
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select name="country" id="cat-list">
+  
+                <option value="Restrount">Restrount</option>
+                <option value="Active Life">Active Life</option>
+                <option value="Arts & Entertainment">Arts & Entertainment</option>
+                <option value="Beauty & Spas">Beauty & Spas</option>
+                <option value="Food">Food</option>
+                <option value="hotelstravel">hotelstravel</option>
+                <option value="nightlife">Nightlifea</option>
+                <option value="shopping">Shopping</option>
+  
+              </select>
+            </div>
+          </div>
+          <div class="control">
+            <button type="submit" class="button is-primary" id="cat-btn">Choose</button>
+          </div>
+        </div>
+  
+      <!--------------------- business rendered from the list --------------------->
+
       <section class="section">
         <h1 class="title">Section</h1>
         <h2 class="subtitle">
@@ -83,12 +129,64 @@
         </h2>
         <div id="bus" class="box"></div>
       </section>
-      <!-- ----------------------------------------------------------------------- -->
+      <!--------------------------------------------------------------------------->
+      <!--Google maps-->
+      <div class="map-img" id="map">
+        <h1 id="statusMessage"></h1>
+      </div>
     </section>
   </main>
+  <!--Modal Popup (About Us)-->
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="modal-header">About Us</h1>
+        <hr>
+        <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugiat facilis id
+          praesentium vero numquam ea eius veritatis, repudiandae incidunt omnis, quaerat ullam nobis suscipit?
+          Praesentium iste magnam reprehenderit cumque incidunt laborum sapiente tempore voluptate ea error qui fugiat
+          eum impedit voluptates, hic itaque totam pariatur distinctio? Corporis possimus voluptatibus illo sunt dolore
+          incidunt ea facilis ipsum! Vero, quasi eius?</p>
+        <!-- Your content -->
+      </div>
+    </div>
+
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
 </body>
+
+
+<!-- ------------------------------ SortList ------------------------------- -->
+<ul id="sortable">
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+</ul>
+
+<style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+ 
+ 
+
+
+
+
+
+
 <!--Jquery Link-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- JQuery UI -->
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -98,8 +196,9 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNFuzoV6nsqabiqVn0yMiXFj-YJAnva3c&callback=initMap&v=weekly"
   async>
   </script>
-<script src="./assets/js/gMaps.js"></script>
 <!--Custom JS-->
+<script src="./assets/js/gMaps.js"></script>
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/modal.js"></script>
 
 </html>

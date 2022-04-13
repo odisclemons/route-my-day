@@ -5,12 +5,17 @@
 
 
 var city1 = 'venice';
-
+var businesses = [];
+var wayPoints = [];
 
 var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
 
 var busContainer = document.getElementById('bus')
+
+var categorySelected = document.querySelector('#cat-btn');
+
+var CatList = document.querySelector('#cat-list');
 
 
 /* ------------------------------- Search BTN ------------------------------- */
@@ -39,7 +44,19 @@ CitySubmit.addEventListener('click', CitySearchFun)
 
 
 
+/* ------------------------ click btn to add to list ------------------------ */
 
+function handleAddClick(i){
+  console.log(i)
+  console.log(businesses[i])
+  let {latitude , longitude} = businesses[i].coordinates
+
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: {lat: latitude, lng: longitude},
+    zoom: 17,
+  });
+  wayPoints.push( {lat: latitude, lng: longitude})
+}
 
 
 function fetchApiData(term1, city1) {
@@ -72,61 +89,30 @@ var bearer_token =
       console.log('is it working')
 
       console.log(data.businesses[0].alias)
-   
-      console.log(data.total)
-
-      // var Name = document.createElement('h3');
-      // Name.textContent = data.businesses[0].alias;
-
-      // console.log(Name)
+      businesses = data.businesses;
+      $('#bus').html(null)
       
-
-      // // 
-
-
-     
-
-      // issueContainer.appendChild(Name);
     
 
 
     // render data
     for (var i = 0; i < 20; i++) {
-     
-      var Name = document.createElement('h3');
-      var web = document.createElement('p');
-      var lat = document.createElement('h2')
-      var lon = document.createElement('h2')
-      var btn = document.createElement('BUTTON');
 
-      var boxForElements = document.createElement('a');
+      let {name, display_phone, image_url } = data.businesses[i]
 
-      boxForElements.classList = 'box';
+      var newBox = `
+      <div class="box">
+        <h3>${name}</h3>
+       <h3>Phone:${display_phone}</h3>
 
-      Name.textContent = data.businesses[i].alias;
-      web.textContent = data.businesses[i].url;
-      lat.textContent = data.businesses[i].coordinates.latitude
-      lon.textContent = data.businesses[i].coordinates.longitude
-      btn.textContent = 'Add to list';
+  
 
-      btn.classList = "addToList"
-      lat.classList = "lat"
-      lon.classList = "lon"
+        <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
+        <div> <img src="${image_url}" </div>
 
-      boxForElements.appendChild(Name);
-      boxForElements.appendChild(web);
-      boxForElements.appendChild(lat);
-      boxForElements.appendChild(lon);
-      boxForElements.appendChild(btn);
-
-      busContainer.appendChild(boxForElements)
-
-      // console.log(Name);
-      
-      // busContainer.append(Name);
-      // busContainer.append(web);
-      // busContainer.append(lat);
-      // busContainer.append(lon);
+    </div>
+      `
+      $('#bus').append(newBox)
     }
     });
 
@@ -138,43 +124,22 @@ var bearer_token =
 }
 
 
-    
-    /* ------------------------ click btn to add to list ------------------------ */
-
-   var CoordinatesList = [];
-
-    var AddCooridatesToList = document.getElementsByClassName('addToList');
-    AddCooridatesToList.onclick = function() {
-
-      console.log("You clicked it")
-
-      // var latCor = document.getElementsByClassName('lat');
-      // var lonCor = document.getElementsByClassName('lon');
-
-      // CoordinatesList.push(latCor);
-      // CoordinatesList.push(lonCor);
-
-      // console.log(CoordinatesList)
-
-	
-}
+  
 
 
 
 
 /* -------------------------- select from drop down ------------------------- */
 // grab text from elemnt that is selected
-var categorySelected = document.querySelector('#cat-btn');
 
-var CatChoice = document.querySelector('#cat-list');
 
-var formCatChoice = function (event) {
+var formCatList = function (event) {
     event.preventDefault();
 
-    var category = CatChoice.value.trim();
+    var category = CatList.value.trim();
 
     console.log(category)
-    console.log("yo")
+
 
 
     fetchApiData(category, city1)
@@ -182,33 +147,22 @@ var formCatChoice = function (event) {
 
 
 
-categorySelected.addEventListener('click', formCatChoice);
+CatList.addEventListener('change', formCatList);
+
+
+/* ------------------------------ Sortable list ----------------------------- */
+
+$( function() {
+  $( "#sortable" ).sortable();
+} );
 
 
 
 
 
 
-/* -------------------------- boxes for each search ------------------------- */
-// idenfiers in html
 
 
-
-
-
-/* -------------------------------------------------------------------------- */
-
-
-
-    // add ccategies to the list 
-    const opt = document.createElement('option');
-                  opt.innerText = "yoo";
-                //   opt.value.add('yoo');
-                opt.classList.add('yoy')
-                 
-                  var addCat = document.querySelector('#cat-list');
-
-                  addCat.appendChild(opt);
 
 
 
