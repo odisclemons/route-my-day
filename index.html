@@ -15,36 +15,42 @@
 </head>
 
 <body>
-  <header>
+  <header class="main-header">
     <nav class="navbar hdr" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <div class="navbar-item nav">
-          <img src="./assets/img/baseball_threads.gif" alt="RMD Logo">
-          <p class="nav" style="font-size: small">Where do you want to go today? </p>
-          <!-- <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28"> -->
-          <input class="input is-small nav" type="text" placeholder="Enter Destination">
-        </div>
+      <div class="navbar-item nav">
+        <img src="./assets/img/baseball_threads.gif" alt="RMD Logo">
       </div>
     </nav>
+    <div class="header-button">
+      <button class="button is-rounded is-small about-us-btn js-modal-trigger" data-target="modal-js-example"> About Us</button>
+    </div>
   </header>
 
 
   <main>
     <div class="img-container">
-      <div class="background-container" style="height: 1200px; width: 100%">
+      <div class="background-container" style="height: 1250px; width: 100%">
+        <div class="text-div">
+          <h1 class="img-header">Map My Route</h1>
+        </div>
+        <div class="text-div">
+          <p class="img-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos.</p>
+        </div>
         <div class="bck-div">
-          <button class="button is-rounded is-large start-button" id="get-started">Get Started!</button>
+          <button class="button is-rounded is-large start-button" id="get-started" href="#map"><a href="#map"> Get
+              Started!</button></a>
         </div>
       </div>
     </div>
 
+    <!---->
     <section class="">
       <!--Google maps-->
       <div id="map">
         <h1 id="statusMessage"></h1>
       </div>
       <!--Yelp-->
-      <!-- ----------------------------------------------------------------------- -->drop down
+      <!-- ------------------------------------------------------------------------->
       <div class="field has-addons">
         <div class="control is-expanded">
           <div class="select is-fullwidth">
@@ -66,16 +72,16 @@
           <button type="submit" class="button is-primary" id="cat-btn">Choose</button>
         </div>
       </div>
-      <!-- ----------------------------- Search BTN ------------------------------ -->
+      <!------------------------------- Search BTN -------------------------------->
       <div class="control">
         <input class="input" type="text" id="Search-btn" placeholder="Enter Destination">
       </div>
-      <!-- ----------------------------- Submit City ----------------------------- -->
+      <!------------------------------- Submit City ------------------------------->
       <div class="control">
         <button class="button is-primary" id="Submit-btn">Submit</button>
       </div>
-      <!-- ----------------------------------------------------------------------- -->
-      <!-- ------------------- business rendered from the list ------------------- -->
+      <!--------------------------------------------------------------------------->
+      <!--------------------- business rendered from the list --------------------->
       <section class="section">
         <h1 class="title">Section</h1>
         <h2 class="subtitle">
@@ -83,9 +89,24 @@
         </h2>
         <div id="bus" class="box"></div>
       </section>
-      <!-- ----------------------------------------------------------------------- -->
+      <!--------------------------------------------------------------------------->
     </section>
   </main>
+  <!--Modal Popup (About Us)-->
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="modal-header">About Us</h1>
+        <hr>
+        <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugiat facilis id praesentium vero numquam ea eius veritatis, repudiandae incidunt omnis, quaerat ullam nobis suscipit? Praesentium iste magnam reprehenderit cumque incidunt laborum sapiente tempore voluptate ea error qui fugiat eum impedit voluptates, hic itaque totam pariatur distinctio? Corporis possimus voluptatibus illo sunt dolore incidunt ea facilis ipsum! Vero, quasi eius?</p>
+        <!-- Your content -->
+      </div>
+    </div>
+  
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
 </body>
 <!--Jquery Link-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -98,8 +119,9 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNFuzoV6nsqabiqVn0yMiXFj-YJAnva3c&callback=initMap&v=weekly"
   async>
   </script>
-<script src="./assets/js/gMaps.js"></script>
 <!--Custom JS-->
+<script src="./assets/js/gMaps.js"></script>
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/modal.js"></script>
 
 </html>
