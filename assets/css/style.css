@@ -233,5 +233,6 @@ select:invalid {
 #map {
   height: 500px;
   width: 500px;
-  border: 1px solid black;
+  border: 8px solid black;
+  border-radius: 5px;
 }
