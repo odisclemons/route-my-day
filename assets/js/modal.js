@@ -140,8 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-//=================Modal for button in card results=================//
 
+
+
+//=================Modal for button in card results=================//
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {
@@ -159,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Add a click event on buttons to open a specific modal
-  (document.querySelectorAll('.modal-trigger-card') || []).forEach(($trigger) => {
+  (document.querySelectorAll('.modal-bussiness') || []).forEach(($trigger) => {
     const modal = $trigger.dataset.target;
     const $target = document.getElementById(modal);
     console.log($target);

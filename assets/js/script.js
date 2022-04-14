@@ -184,7 +184,7 @@ var bearer_token =
       <div class="media-content">
         <p class="title is-4">${name}</p>
         <p class="subtitle is-6">${display_phone}</p>
-        <button class="js-modal-trigger button is-rounded is-small yelp-btn" data-target="modal-trigger-card">Open PopUp</button>
+        <button class="modal-bussiness button is-rounded is-small yelp-btn" data-target="modal-trigger-card">Open PopUp</button>
         <div class="content">
           <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})">Add to list</button>
           <br>
@@ -195,58 +195,6 @@ var bearer_token =
 
   </div>
 </div> `
-
-//=================Modal for button in card results=================//
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Functions to open and close a modal
-  function openModal($el) {
-    $el.classList.add('is-active');
-  }
-
-  function closeModal($el) {
-    $el.classList.remove('is-active');
-  }
-
-  function closeAllModals() {
-    (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-      closeModal($modal);
-    });
-  }
-
-  // Add a click event on buttons to open a specific modal
-  (document.querySelectorAll('.modal-trigger-card') || []).forEach(($trigger) => {
-    const modal = $trigger.dataset.target;
-    const $target = document.getElementById(modal);
-    console.log($target);
-
-    $trigger.addEventListener('click', () => {
-      openModal($target);
-    });
-  });
-
-  // Add a click event on various child elements to close the parent modal
-  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-    const $target = $close.closest('.modal');
-
-    $close.addEventListener('click', () => {
-      closeModal($target);
-    });
-  });
-
-  // Add a keyboard event to close all modals
-  document.addEventListener('keydown', (event) => {
-    const e = event || window.event;
-
-    if (e.keyCode === 27) { // Escape key
-      closeAllModals();
-    }
-  });
-});
-
-//==================================//
-
-
 
 
      
