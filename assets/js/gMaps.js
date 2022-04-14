@@ -1,9 +1,8 @@
 var origin = { lat: 28.6024372, lng: -81.2001365 };
-var destination =  { lat: 28.5866662, lng: -81.3077608 }
+var destination = { lat: 28.5866662, lng: -81.3077608 }
 var map;
 
 function initMap() {
-  console.log(places)
   // just a place to display messages for now.  you guys can replace it with whatever method you want that looks better
   var statusMessage = $("#statusMessage");
 
@@ -36,7 +35,7 @@ function initMap() {
   directionsRenderer.setMap(map);
 
   // this methoud actually does the route request and returns the results
-  
+
   try {
     directionsService.route(routeOptions, (res, status) => {
       console.log(res);
@@ -54,7 +53,7 @@ function initMap() {
   }
 }
 
- function updateMap(){
+async function updateMap() {
   // directions service returns a route based on the route options passed to it
   var directionsService = new google.maps.DirectionsService();
 
@@ -67,15 +66,15 @@ function initMap() {
   console.log(places)
   var routeOptions = {
     origin: places[0],
-    destination: places[places.length -1],
+    destination: places[places.length - 1],
     travelMode: "DRIVING",
-    waypoints: getWayPoints(places),
+    waypoints: await getWayPoints(places),
     optimizeWaypoints: true,
   };
 
 
   try {
-    console.log('RouteOptions:',routeOptions)
+    console.log('RouteOptions:', routeOptions)
     directionsService.route(routeOptions, (res, status) => {
       console.log(res);
       console.log(status);
@@ -92,10 +91,22 @@ function initMap() {
   }
 }
 
-function getWayPoints(places){
-  return places.filter((place, i)=>{
-    i !== 0 || i !== place.length - 1
-  }).map(place =>{
-    return {location: place, stopover: true}
+function getWayPoints(places) {
+  var finalPlaces = [];
+  places.pop()
+  return new Promise((res, rej) => {
+  var i = 0;
+  do {
+    console.log(i, 'length:', places.length)
+    if(i > 0 && i < places.length -1) {
+      console.log(places[i])
+      finalPlaces.push({ location: places[i], stopover: true })
+    }
+    if(i === places.length -2) res(finalPlaces)
+    i ++;
+  } while (i < places.length)
+
+
+
   })
 }
