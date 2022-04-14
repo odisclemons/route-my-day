@@ -14,7 +14,7 @@ var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
 var SearchBox = document.querySelector('#Search-box');
 
-var JquerySubmit = document.querySelector('#jQuery-Submit')
+var BtnDone = document.querySelector('#btn-done')
 SearchBox.value = city;
 
 var busContainer = document.getElementById('bus')
@@ -81,7 +81,7 @@ function createPlacesList() {
 
 
 }
-JquerySubmit.addEventListener('click', createPlacesList)
+BtnDone.addEventListener('click', createPlacesList)
 
 
 
@@ -157,7 +157,7 @@ var bearer_token =
 
 
     // render data
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 5; i++) {
 
       let {name, url, display_phone, image_url} = data.businesses[i]
       if(!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
