@@ -170,11 +170,6 @@ var bearer_token =
           <img src="${image_url}" alt="Placeholder image">
         </figure>
       </div>
-      
-  
-      </div>
-    
-      <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
 </div>
@@ -185,13 +180,12 @@ var bearer_token =
         <p class="subtitle is-6">${display_phone}</p>
         <button class="js-modal-trigger" data-target="modal-js-example">
         Open JS example modal
-      </button>
+        </button>
       </div>
     </div>
 
     <div class="content">
     <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
-      <a href="#">#css</a> <a href="#">#responsive</a>
       <br>
       <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
