@@ -190,7 +190,8 @@ select:invalid {
 
 .user-api {
   display: flex;
-  width: 70%;
+  align-items: center;
+  width: 50%;
   flex-direction: column;
 }
 
@@ -231,6 +232,32 @@ select:invalid {
 .modal-text {
   color: black;
 }
+
+
+.card-yelp {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.card-content{
+  padding: 1rem;
+}
+
+.yelp-btn {
+  background-color: var(--main);
+}
+
+.yelp-img {
+  border: solid 1px black;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+}
+
 /*   */
 
 /* ID's */
@@ -257,8 +284,8 @@ select:invalid {
 
 /* hxw of map plus border and color  */
 #map {
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 600px;
   border: .5rem solid black;
   border-radius: 1rem;
 }
