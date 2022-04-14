@@ -10,6 +10,8 @@
   --green: #A4E677;
   --btnpurple: #B79CD9;
   --btnoutlinegreen: #D9D89C;
+  --palepurple: #D4D1FE;
+  --pale2: #E0E7FF;
 }
 
 * {
@@ -92,13 +94,22 @@ a {
 
 .img-header {
   color: black;
-  font-size: 84px;
+  font-size: 128px;
+  font-weight: bolder;
   margin-top: 15rem;
 }
+
+/* .text-words {
+  background-image: url(../img/clipart.jfif);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+} */
 
 .img-p {
   color: black;
   font-size: 40px;
+  font-weight: bold;
   margin-top: 3rem;
 }
 
@@ -190,7 +201,8 @@ select:invalid {
 
 .user-api {
   display: flex;
-  width: 70%;
+  align-items: center;
+  width: 50%;
   flex-direction: column;
 }
 
@@ -221,6 +233,32 @@ select:invalid {
   margin-top: 3rem;
 }
 
+.card-yelp {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: inset 0 1px 5px 2px #9681e6;
+  /* background-color: #EAE5FF; */
+}
+
+.card-content{
+  padding: 1rem;
+}
+
+.yelp-btn {
+  background-color: var(--main);
+}
+
+.yelp-img {
+  border: solid 1px black;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+}
+
 /* Styling for modal */
 .modal-header {
   font-weight: 600;
@@ -231,6 +269,9 @@ select:invalid {
 .modal-text {
   color: black;
 }
+
+
+
 /*   */
 
 /* ID's */
@@ -257,8 +298,8 @@ select:invalid {
 
 /* hxw of map plus border and color  */
 #map {
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 600px;
   border: .5rem solid black;
   border-radius: 1rem;
 }

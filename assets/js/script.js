@@ -160,40 +160,39 @@ var bearer_token =
 
       /* ----------------------------------Yelp Cards---------------------------------------- */
       var newBox = `
-<div class="card">
+<div class="card card-yelp">
  
   <div class="card-content">
     <div class="media">
       <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="${image_url}" alt="Placeholder image">
+        <figure class="image" style="width: 128px">
+          <img src="${image_url}" alt="Placeholder image" class="yelp-img">
         </figure>
       </div>
       
   
       </div>
     
-      <button class="modal-close is-large" aria-label="close"></button>
+      <!--<button class="modal-close is-large" aria-label="close"></button>-->
     </div>
-
-</div>
 
 
       <div class="media-content">
         <p class="title is-4">${name}</p>
         <p class="subtitle is-6">${display_phone}</p>
-        <button class="js-modal-trigger" data-target="modal-js-example">
+        <button class="js-modal-trigger button is-rounded is-small yelp-btn" data-target="modal-js-example">
         Open JS example modal
-      </button>
+        </button>
+      
+        <div class="content">
+          <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})">Add to list</button>
+          <br>
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        </div>
       </div>
     </div>
 
-    <div class="content">
-    <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-    </div>
+    
   </div>
 </div> `
 
