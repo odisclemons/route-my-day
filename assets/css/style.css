@@ -230,9 +230,10 @@ select:invalid {
 /*   */
 
 /* ID's */
+/* hxw of map plus border and color  */
 #map {
   height: 500px;
   width: 500px;
-  border: 8px solid black;
-  border-radius: 5px;
+  border: .5rem solid black;
+  border-radius: 1rem;
 }
