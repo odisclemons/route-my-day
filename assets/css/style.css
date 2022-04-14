@@ -8,6 +8,8 @@
   --lightblue: #84DAD9;
   --lightgreen: #86F0A9;
   --green: #A4E677;
+  --btnpurple: #B79CD9;
+  --btnoutlinegreen: #D9D89C;
 }
 
 * {
@@ -26,7 +28,9 @@ hr {
 a {
   color: black;
 }
+
 /* Classes */
+/* Header and body styling */
 .main-header{
   display: flex;
   flex-direction: row;
@@ -53,13 +57,13 @@ a {
   padding: 1rem;
 }
 
+
 .about-us-btn {
   color: black;
-  background-color: #BBFAB6;
-}
-
-.about-us-btn:hover {
-  background-color: var(--main);
+  background-color: var(--btnpurple);
+  border-color: var(--btnoutlinegreen) solid;
+  margin: .5rem;
+  padding: 1rem;
 }
 
 .img-container {
@@ -80,17 +84,18 @@ a {
 .img-header {
   color: black;
   font-size: 84px;
+  margin-top: 15rem;
 }
 
 .img-p {
   color: black;
   font-size: 40px;
+  margin-top: 3rem;
 }
 
 .text-div {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
 }
 
 .bck-div {
@@ -102,14 +107,54 @@ a {
 }
 
 .start-button {
-  background-color: #BBFAB6;
-  color: black;
-}
-/* hover body button */
-.start-button:hover {
   background-color: var(--main);
+  color: black;
+  border-color: var(--btnoutlinegreen) solid;
+}
+/* */
+
+
+/* API styling */
+select:invalid {
+  color: gray;
 }
 
+.API-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.instruction-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.ins-header {
+  color: black;
+  font-size: 40px;
+}
+
+.ins-p {
+  color: black;
+  font-size: 25px;
+  /* margin: 1rem; */
+}
+
+.input {
+  width: 20%;
+}
+
+.map-img {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Styling for modal */
 .modal-header {
   font-weight: 600;
   font-size: larger;
