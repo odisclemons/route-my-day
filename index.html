@@ -17,19 +17,21 @@
 <body>
   <header class="main-header">
     <!-- <nav class="navbar hdr" role="navigation" aria-label="main navigation"> -->
-      <div class="nav hdrLogo">
-        <container>
-        <img src="./assets/img/Logo2.png" alt="RMD Logo">
+    <div class="nav hdrLogo">
+      <container>
+        <img src="./assets/img/Logo2.png" alt="RMD Logo" style="height: 60px;">
       </container class="containerHeader">
-      </div>
+    </div>
     <!-- </nav> -->
     <div class="header-button">
-      <button class="button is-rounded is-small about-us-btn js-modal-trigger actual-btn"
+      <button class="button is-rounded is-medium header-btn js-modal-trigger actual-btn"
         data-target="modal-js-example">About Us</button>
-      <button class="button is-rounded is-small about-us-btn js-modal-trigger actual-btn"
-        data-target="modal-js-example">Contact Us</button>
-      <button class="button is-rounded is-small about-us-btn js-modal-trigger actual-btn"
-        data-target="modal-js-example">Placeholder</button>
+
+      <button class="button is-rounded is-medium header-btn modal-contact-us actual-btn"
+        data-target="modal-contact-us">Contact Us</button>
+
+      <button class="button is-rounded is-medium header-btn js-modal-trigger actual-btn"
+        data-target="modal-something">Other Projects</button>
     </div>
   </header>
 
@@ -41,10 +43,10 @@
           <h1 class="img-header text-words">Map My Route</h1>
         </div>
         <div class="text-div">
-          <p class="img-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quos.</p>
+          <p class="img-p">Fast and easy. Pick the spots and we'll route em.</p>
         </div>
         <div class="bck-div">
-          <button class="button is-rounded is-large start-button" id="get-started" href="#map"><a href="#map"> Get
+          <a href="#map"><button class="button is-rounded is-large start-button" id="get-started" href="#map"> Get
               Started!</button></a>
         </div>
       </div>
@@ -57,9 +59,7 @@
           <h1 class="ins-header">Fast and Easy!</h1>
         </div>
         <div class="text-div">
-          <p class="ins-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi consequuntur numquam
-            perspiciatis est
-            deserunt aut.</p>
+          <p class="ins-p">Doesn't get much simplier. Just pick a category, enter a city, and hit submit!</p>
         </div>
       </div>
       <!--Yelp-->
@@ -87,7 +87,7 @@
         </div>
 
         <!------------------------------- Search BTN -------------------------------->
-          
+
         <div class="control">
           <input class="input" type="text" id="Search-box" placeholder="Enter Destination">
         </div>
@@ -96,8 +96,8 @@
       <div class="control center-btn">
         <button class="button is-rounded is-large control-btn" id="Submit-btn">Submit</button>
       </div>
+      <br>
 
-  
       <!-- -----------------------------------------------------------------------drop down -->
 
       <!--------------------- business rendered from the list --------------------->
@@ -109,9 +109,7 @@
               <h1 class="title">Results:</h1>
             </div>
             <div class="section-api">
-              <h2 class="subtitle">
-                Lorem ipsum dolor sit, amet consectetur adipisicing.
-              </h2>
+              <!--<h2 class="subtitle">Lorem ipsum dolor sit, amet consectetur adipisicing.</h2>-->
             </div>
             <div id="bus" class="box"></div>
           </div>
@@ -121,9 +119,9 @@
             <div class="map-img" id="map">
               <h1 id="statusMessage"></h1>
             </div>
+            
+            <h1 class="list-header" style="padding-top: 1rem;">Places:</h1>
 
-
-            <h1 class="list-header">Places:</h1>
             <div class="user-list">
               <ul id="sortable">
               </ul>
@@ -138,9 +136,20 @@
   <!--------------------------------------------------------------------------->
 
 
-  <!-- ------------------------ Modal for businesses ------------------------- -->
+  <!-- ------------------------ Modal for businesses ---------------------------->
+  <div id="trigger-modal" class="modal">
+    <div class="modal-background"></div>
 
-  <!--------------------------------------------------------------------------->
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="modal-haeder">Business Information:</h1>
+        <hr>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <!----------------------------------------------------------------------------->
 
   <!----------------------Modal Popup (About Us)--------------------------------->
   <div id="modal-js-example" class="modal">
@@ -148,23 +157,85 @@
 
     <div class="modal-content">
       <div class="box">
-        <h1 class="modal-header">About Us</h1>
+        <h1 class="modal-haeder">About Us</h1>
         <hr>
-        <p class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugiat facilis id
-          praesentium vero numquam ea eius veritatis, repudiandae incidunt omnis, quaerat ullam nobis suscipit?
-          Praesentium iste magnam reprehenderit cumque incidunt laborum sapiente tempore voluptate ea error qui fugiat
-          eum impedit voluptates, hic itaque totam pariatur distinctio? Corporis possimus voluptatibus illo sunt dolore
-          incidunt ea facilis ipsum! Vero, quasi eius?</p>
+        <p class="modal-text">We aren't a company. Nor a startup. Just 4 dudes learning to code and making projects for their bootcamp. Based in Orlando Fl, USA.</p>
+        <br>
+        <P>Made by: Tim McMullan, Odis Clemons, Phillip Pereira, and Jesse Maun</P>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <!------------------------------------------------------------------------------->
+  <!----------------------Modal Popup (contact us)--------------------------------->
+  <div id="modal-contact-us" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="modal-haeder">Contact Us</h1>
+        <hr>
+        <div class="contact-us-modal">
+          <div class="div-container">
+            <div class="img-div-modal1">
+              <img src="./assets/img/Group pic/timpic.png" alt="Profile pic" class="modal-img"
+                style="height: 200px; width: 175px;">
+              <div class="hide">
+                <p>Tim McMullan</p>
+                <a href=""><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
+              </div>
+            </div>
+            <div class="img-div-modal2 justify-colmun">
+              <img src="./assets/img/Group pic/placeholder person.png" alt="Profile pic" class="modal-img"
+                style="height: 200px; width: 175px;">
+              <div class="hide">
+                <p>Odis Clemons</p>
+                <a href=""><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="div-container">
+            <div class="img-div-modal3">
+              <img src="./assets/img/Group pic/me pic.jfif" alt="Profile pic" class="modal-img"
+                style="height: 200px; width: 175px;">
+              <div class="hide">
+                <p>Phillip Pereira</p>
+                <a href="https://github.com/Phillip48"><button class="button is-rounded is-small github-btn"
+                    id="get-started">GitHub</button></a>
+              </div>
+            </div>
+            <div class="img-div-modal4">
+              <img src="./assets/img/Group pic/placeholder person.png" alt="Profile pic" class="modal-img"
+                style="height: 200px; width: 175px;">
+              <div class="hide">
+                <p>Jesse Maun</p>
+                <a href=""><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <!-------------------------------------------------------------------------------->
+  <!----------------------Modal Popup (other projects)------------------------------->
+  <div id="modal-something" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+      <div class="box">
+        <h1 class="modal-haeder">Other Projects</h1>
+        <hr>
+        <p>You can find some of our other projects here:</p>
       </div>
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
 </body>
-<!----------------------Modal Popup (contact us)--------------------------------->
-<!----------------------Modal Popup (placeholder)--------------------------------->
-
-<!-- ------------------------------ SortList ------------------------------- -->
-
+<!-- -------------------------- Jquery Submit BTN -------------------------- -->
+<button class="button" id="jQuery-Submit">Button</button>
 
 <!--Jquery Link-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

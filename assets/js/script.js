@@ -40,6 +40,7 @@ var CitySearchFun = function (event) {
     return;
   }
 
+  $("#bus").show()
   city = SearchBox.value.trim();
   console.log(city)
 
@@ -139,10 +140,8 @@ function fetchApiData(location1, city) {
       $('#bus').html(null)
 
 
-
-
       // render data
-      for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 15; i++) {
 
         let { name, url, display_phone, image_url } = data.businesses[i]
         if (!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
@@ -165,14 +164,10 @@ function fetchApiData(location1, city) {
       <!--<button class="modal-close is-large" aria-label="close"></button>-->
     </div>
 
-
       <div class="media-content">
         <p class="title is-4">${name}</p>
         <p class="subtitle is-6">${display_phone}</p>
-        <button class="js-modal-trigger button is-rounded is-small yelp-btn" data-target="modal-js-example">
-        Open JS example modal
-        </button>
-      
+        <button class="modal-bussiness button is-rounded is-small yelp-btn" data-target="modal-trigger-card">Open PopUp</button>
         <div class="content">
           <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})">Add to list</button>
           <br>
@@ -181,10 +176,14 @@ function fetchApiData(location1, city) {
       </div>
     </div>
 
-    
   </div>
 </div> `
+     
+      $('#bus').append(newBox)
+    }
+    });
 
+    // .catch((error) => console.log(error));
 
         $('#bus').append(newBox)
       }
