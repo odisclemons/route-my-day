@@ -65,75 +65,75 @@
       <!--Yelp-->
 
       <!-- ------------------------------------------------------------------------->
-      <div class="field has-addons">
-        <div class="control">
-          <div class="select">
-            <select name="country" id="cat-list">
-              <option value="" disabled selected hidden>Select Category</option>
-              <option value="Restaurant">Restaurant</option>
-              <option value="Active Life">Active Life</option>
-              <option value="Arts & Entertainment">Arts & Entertainment</option>
-              <option value="Beauty & Spas">Beauty & Spas</option>
-              <option value="Food">Food</option>
-              <option value="hotelstravel">Hotels</option>
-              <option value="nightlife">Night Life</option>
-              <option value="shopping">Shopping</option>
-            </select>
+      <div class="row">
+        <div class="field has-addons">
+          <div class="control">
+            <div class="select">
+              <select name="country" id="cat-list">
+                <option value="" disabled selected hidden>Select Category</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Active Life">Active Life</option>
+                <option value="Arts & Entertainment">Arts & Entertainment</option>
+                <option value="Beauty & Spas">Beauty & Spas</option>
+                <option value="Food">Food</option>
+                <option value="hotelstravel">Hotels</option>
+                <option value="nightlife">Night Life</option>
+                <option value="shopping">Shopping</option>
+              </select>
+            </div>
           </div>
         </div>
+
+        <!------------------------------- Search BTN -------------------------------->
+          
         <div class="control">
-          <button type="submit" class="button is-primary" id="cat-btn">Choose</button>
+          <input class="input" type="text" id="Search-box" placeholder="Enter Destination">
         </div>
       </div>
-
-      <!------------------------------- Search BTN -------------------------------->
-
-      <div class="control">
-        <input class="input" type="text" id="Search-box" placeholder="Enter Destination">
-      </div>
       <!------------------------------- Submit City ------------------------------->
-      <div class="control">
-        <button class="button is-primary" id="Submit-btn">Submit</button>
+      <div class="control center-btn">
+        <button class="button is-rounded is-large control-btn" id="Submit-btn">Submit</button>
       </div>
 
       <!-- ----------------------------------------------------------------------- -->
       <!-- -----------------------------------------------------------------------drop down -->
-      <div class="field has-addons">
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
-            <select name="country" id="cat-list">
-
-              <option value="Restrount">Restrount</option>
-              <option value="Active Life">Active Life</option>
-              <option value="Arts & Entertainment">Arts & Entertainment</option>
-              <option value="Beauty & Spas">Beauty & Spas</option>
-              <option value="Food">Food</option>
-              <option value="hotelstravel">hotelstravel</option>
-              <option value="nightlife">Nightlifea</option>
-              <option value="shopping">Shopping</option>
-
-            </select>
-          </div>
-        </div>
-        <div class="control">
-          <button type="submit" class="button is-primary" id="cat-btn">Choose</button>
-        </div>
-      </div>
-
       <!--------------------- business rendered from the list --------------------->
 
       <section class="section">
-        <h1 class="title">Section</h1>
-        <h2 class="subtitle">
-          A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
-        </h2>
-        <div id="bus" class="box"></div>
+        <div class="container-userapi">
+          <div class="user-api">
+            <div class="section-api">
+              <h1 class="title">Results:</h1>
+            </div>
+            <div class="section-api">
+              <h2 class="subtitle">
+                Lorem ipsum dolor sit, amet consectetur adipisicing.
+              </h2>
+            </div>
+            <div id="bus" class="box"></div>
+          </div>
+          <!--------------------------------------------------------------------------->
+          <!--Google maps-->
+          <div class="maps-list">
+            <div class="map-img" id="map">
+              <h1 id="statusMessage"></h1>
+            </div>
+            <h1 class="list-header">List item:</h1>
+            <div class="user-list">
+              <ul id="sortable">
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
       <!--------------------------------------------------------------------------->
-      <!--Google maps-->
-      <div class="map-img" id="map">
-        <h1 id="statusMessage"></h1>
-      </div>
     </section>
   </main>
   <!--Modal Popup (About Us)-->
@@ -159,16 +159,6 @@
 
 
 <!-- ------------------------------ SortList ------------------------------- -->
-<ul id="sortable">
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
-</ul>
-
 <style>
   #sortable {
     list-style-type: none;
@@ -190,12 +180,6 @@
     margin-left: -1.3em;
   }
 </style>
-
-
-
-
-
-
 
 
 <!--Jquery Link-->
