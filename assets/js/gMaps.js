@@ -63,12 +63,11 @@ async function updateMap() {
   // change the output of directions renderer to replace that map we just made
   directionsRenderer.setMap(map);
 
-  console.log(places)
   var routeOptions = {
     origin: places[0],
     destination: places[places.length - 1],
     travelMode: "DRIVING",
-    waypoints: await getWayPoints(places),
+    waypoints: await getWayPoints(),
     optimizeWaypoints: true,
   };
 
@@ -91,21 +90,32 @@ async function updateMap() {
   }
 }
 
-function getWayPoints(places) {
-  var finalPlaces = [];
-  places.pop()
-  return new Promise((res, rej) => {
-  var i = 0;
-  do {
-    console.log(i, 'length:', places.length)
-    if(i > 0 && i < places.length -1) {
-      console.log(places[i])
-      finalPlaces.push({ location: places[i], stopover: true })
-    }
-    if(i === places.length -2) res(finalPlaces)
-    i ++;
-  } while (i < places.length)
+// format the waypoints from the list of places
+function getWayPoints() {
+  // removes the first and last index of places array
+  // those will be sent seperately as origin and destination
+  var tempPlaces = places.slice(1, places.length - 1)
 
+  // empty array to hold our results
+  var finalPlaces = [];
+
+// promise makes sure this function wont return until we finish working on it
+  return new Promise((res, rej) => {
+
+    // loop through tempPlaces
+    tempPlaces.map((location, i) => {
+      
+      // google's waypoints needds us to take each individual place 
+      // and wrap in an object with a stopover key
+      finalPlaces.push({ location, stopover: true })
+
+      // if we just finished with the last index of the array then 
+      // resolve the promise with the final updated array
+      if (i === tempPlaces.length - 1) {
+        console.log("FinalPlaces:", finalPlaces)
+        res(finalPlaces)
+      }
+    })
 
 
   })
