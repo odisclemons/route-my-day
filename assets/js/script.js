@@ -7,13 +7,13 @@
 var city1 = 'venice';
 var businesses = [];
 var wayPoints = [];
+var places = [];
 
 var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
 
 var busContainer = document.getElementById('bus')
 
-var categorySelected = document.querySelector('#cat-btn');
 
 var CatList = document.querySelector('#cat-list');
 
@@ -24,7 +24,10 @@ var CatList = document.querySelector('#cat-list');
 
 
 var CitySearchFun = function (event) {
+
   event.preventDefault();
+
+
 
   var city = CitySearch.value.trim();
   console.log(city1)
@@ -55,7 +58,8 @@ function handleAddClick(i){
     center: {lat: latitude, lng: longitude},
     zoom: 17,
   });
-  wayPoints.push( {lat: latitude, lng: longitude})
+  places.push(businesses[i])
+  // replaces with places list {lat: latitude, lng: longitude}
 }
 
 
