@@ -14,7 +14,7 @@ var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
 var SearchBox = document.querySelector('#Search-box');
 
-var JquerySubmit = document.querySelector('#jQuery-Submit')
+var BtnDone = document.querySelector('#btn-done')
 SearchBox.value = city;
 
 var busContainer = document.getElementById('bus')
@@ -30,12 +30,12 @@ var CatList = document.querySelector('#cat-list');
 var CitySearchFun = function (event) {
 
   event.preventDefault();
-  if(!SearchBox.value || SearchBox.value.length < 2) {
+  if (!SearchBox.value || SearchBox.value.length < 2) {
     alert('You must specify a city.')
     return;
   }
 
-  if(!CatList.value){
+  if (!CatList.value) {
     alert('You must specify a category.')
     return;
   }
@@ -46,9 +46,9 @@ var CitySearchFun = function (event) {
 
 
 
-  
 
-} 
+
+}
 
 CitySubmit.addEventListener('click', CitySearchFun)
 
@@ -59,30 +59,21 @@ CitySubmit.addEventListener('click', CitySearchFun)
 /* --------------------------- add to places list --------------------------- */
 
 function createPlacesList() {
-
   var jQueryPlaces = document.querySelector('#sortable');
 
-  for (var i = 0; i <jQueryPlaces.children.length; i++) {
-
+  for (var i = 0; i < jQueryPlaces.children.length + 1; i++) {
+    if (i === jQueryPlaces.children.length) {
+      updateMap(places.slice(1, places.length - 2))
+      return
+    }
     var listLongitude = jQueryPlaces.children[i].getAttribute('data-longitude')
     var listLatitude = jQueryPlaces.children[i].getAttribute('data-latitude')
-
-    places.push({ lat: listLatitude, lng: listLongitude })
-
-   console.log(places)
-
-
-   
-
-
+    places.push({ lat: Number(listLatitude), lng: Number(listLongitude) })
 
   }
 
-
-
-
 }
-JquerySubmit.addEventListener('click', createPlacesList)
+BtnDone.addEventListener('click', createPlacesList)
 
 
 
@@ -92,27 +83,21 @@ JquerySubmit.addEventListener('click', createPlacesList)
 
 /* ------------------------ click btn to add to list ------------------------ */
 
-function handleAddClick(i){
+function handleAddClick(i) {
   console.log(i)
   console.log(businesses[i])
-  let {latitude, longitude} = businesses[i].coordinates
-  let {name, image_url} = businesses[i]
+  let { latitude, longitude } = businesses[i].coordinates
+  let { name, image_url } = businesses[i]
   // adding to j query UI 
 
   var newJquryuiItem = `
-
      <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>${name}</li>
-   
-     
-
-     
-      `
-      $('#sortable').append(newJquryuiItem)
-
+    `
+  $('#sortable').append(newJquryuiItem)
 
 
   map = new google.maps.Map(document.getElementById("map"), {
-    center: {lat: latitude, lng: longitude},
+    center: { lat: latitude, lng: longitude },
     zoom: 17,
   });
   // places.push(businesses[i])
@@ -123,18 +108,18 @@ function handleAddClick(i){
 
 function fetchApiData(location1, city) {
 
-var bearer_token =
+  var bearer_token =
     "KNzo5Qc9AI4wBhsJRiQb47rkb3LmpBO6LCIrWXFTEXnO9gAH0hUhvx7Em0iYsE1AQL3_FfHiq__AJaQawUsPl8TNjN747zm7XczRFIDVYIaUAmATp_LD8gdKvmdUYnYx";
 
-    // var city = 'toronto'
-    // var term1 = 'shopping'
+  // var city = 'toronto'
+  // var term1 = 'shopping'
 
-    console.log(city + "in fetchApiData")
+  console.log(city + "in fetchApiData")
 
 
   var url =
-    'https://floating-headland-95050.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city + '&term=' + location1 ;
-    // console.log(location1)
+    'https://floating-headland-95050.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city + '&term=' + location1;
+  // console.log(location1)
   var bearer = "Bearer " + bearer_token;
   fetch(url, {
     method: "GET",
@@ -146,25 +131,23 @@ var bearer_token =
       return response.json();
     })
     .then(function (data) {
-      
+
       console.log(data);
       console.log('is it working')
 
       console.log(data.businesses[0].alias)
       businesses = data.businesses;
       $('#bus').html(null)
-      
-    
 
 
-    // render data
-    for (var i = 0; i < 15; i++) {
+      // render data
+  for (var i = 0; i < 15; i++) {
 
-      let {name, url, display_phone, image_url} = data.businesses[i]
-      if(!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+        let { name, url, display_phone, image_url } = data.businesses[i]
+        if (!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
 
-      /* ----------------------------------Yelp Cards---------------------------------------- */
-      var newBox = `
+        /* ----------------------------------Yelp Cards---------------------------------------- */
+        var newBox = `
 <div class="card card-yelp">
  
   <div class="card-content">
@@ -195,8 +178,6 @@ var bearer_token =
 
   </div>
 </div> `
-
-
      
       $('#bus').append(newBox)
     }
@@ -204,13 +185,13 @@ var bearer_token =
 
     // .catch((error) => console.log(error));
 
+        $('#bus').append(newBox)
+      }
+    });
 
-
+  // .catch((error) => console.log(error));
 
 }
-
-
-
 
 
 /* -------------------------- select from drop down ------------------------- */
@@ -218,18 +199,18 @@ var bearer_token =
 
 
 var formCatList = function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    var category = CatList.value.trim();
+  var category = CatList.value.trim();
 
-    console.log(category)
+  console.log(category)
 
-    if(city != null) {
+  if (city != null) {
 
 
 
     fetchApiData(category, city)
-    }
+  }
 }
 
 
@@ -239,9 +220,9 @@ CatList.addEventListener('change', formCatList);
 
 /* ------------------------------ Sortable list ----------------------------- */
 
-$( function() {
-  $( "#sortable" ).sortable();
-} );
+$(function () {
+  $("#sortable").sortable();
+});
 
 
 
