@@ -4,7 +4,9 @@
 // Yelp api request
 
 
-var city = '';
+
+var city = 'Orlando';
+
 var businesses = [];
 var places = [];
 
@@ -112,12 +114,13 @@ function handleAddClick(i){
     center: {lat: latitude, lng: longitude},
     zoom: 17,
   });
-  places.push(businesses[i])
+  // places.push(businesses[i])
   // replaces with places list {lat: latitude, lng: longitude}
 }
 
 
-function fetchApiData(term1, city) {
+
+function fetchApiData(location1, city) {
 
 var bearer_token =
     "KNzo5Qc9AI4wBhsJRiQb47rkb3LmpBO6LCIrWXFTEXnO9gAH0hUhvx7Em0iYsE1AQL3_FfHiq__AJaQawUsPl8TNjN747zm7XczRFIDVYIaUAmATp_LD8gdKvmdUYnYx";
@@ -129,7 +132,7 @@ var bearer_token =
 
 
   var url =
-    'https://floating-headland-95050.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city + '&term=' + term1 ;
+    'https://floating-headland-95050.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city + '&term=' + location1 ;
     // console.log(location1)
   var bearer = "Bearer " + bearer_token;
   fetch(url, {
@@ -225,9 +228,12 @@ var formCatList = function (event) {
 
     console.log(category)
 
+    if(city != null) {
+
 
 
     fetchApiData(category, city)
+    }
 }
 
 
