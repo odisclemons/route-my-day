@@ -45,15 +45,15 @@ a {
 .nav {
   padding: 1rem;
 }
-
+/* modifies bulma class  */
 .navbar-item { 
   display: flex;
   justify-content: space-between;
 }
-
+/* constrains size of logo  */
 .hdrLogo {
   max-width: 17rem;
-  padding-left: 5rem;
+  padding-left: 2rem;
 }
 
 .header-button {
