@@ -270,6 +270,15 @@ select:invalid {
   color: black;
 }
 
+.logoButton {
+  height: 100px;
+  width: 160px;
+  background: url("../img/Logo2.png") no-repeat 10px center;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: none;
+}
 
 
 /*   */
