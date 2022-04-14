@@ -3,6 +3,7 @@ var destination =  { lat: 28.5866662, lng: -81.3077608 }
 var map;
 
 function initMap() {
+  console.log(places)
   // just a place to display messages for now.  you guys can replace it with whatever method you want that looks better
   var statusMessage = $("#statusMessage");
 
@@ -36,19 +37,65 @@ function initMap() {
 
   // this methoud actually does the route request and returns the results
   
-  // try {
-  //   directionsService.route(routeOptions, (res, status) => {
-  //     console.log(res);
-  //     console.log(status);
+  try {
+    directionsService.route(routeOptions, (res, status) => {
+      console.log(res);
+      console.log(status);
 
-  //     // if we did all of the above correctly, make a map or handle the error that was returned
-  //     if (status == "OK") {
-  //       directionsRenderer.setDirections(res);
-  //     } else {
-  //       statusMessage.text("There was an error getting your directions 😭");
-  //     }
-  //   });
-  // } catch (err) {
-  //   console.log("Error:", err);
-  // }
+      // if we did all of the above correctly, make a map or handle the error that was returned
+      if (status == "OK") {
+        directionsRenderer.setDirections(res);
+      } else {
+        statusMessage.text("There was an error getting your directions 😭");
+      }
+    });
+  } catch (err) {
+    console.log("Error:", err);
+  }
+}
+
+ function updateMap(){
+  // directions service returns a route based on the route options passed to it
+  var directionsService = new google.maps.DirectionsService();
+
+  // directions renderer replaces the element you pass to it with the map
+  var directionsRenderer = new google.maps.DirectionsRenderer();
+
+  // change the output of directions renderer to replace that map we just made
+  directionsRenderer.setMap(map);
+
+  console.log(places)
+  var routeOptions = {
+    origin: places[0],
+    destination: places[places.length -1],
+    travelMode: "DRIVING",
+    waypoints: getWayPoints(places),
+    optimizeWaypoints: true,
+  };
+
+
+  try {
+    console.log('RouteOptions:',routeOptions)
+    directionsService.route(routeOptions, (res, status) => {
+      console.log(res);
+      console.log(status);
+
+      // if we did all of the above correctly, make a map or handle the error that was returned
+      if (status == "OK") {
+        directionsRenderer.setDirections(res);
+      } else {
+        statusMessage.text("There was an error getting your directions 😭");
+      }
+    });
+  } catch (err) {
+    console.log("Error:", err);
+  }
+}
+
+function getWayPoints(places){
+  return places.filter((place, i)=>{
+    i !== 0 || i !== place.length - 1
+  }).map(place =>{
+    return {location: place, stopover: true}
+  })
 }

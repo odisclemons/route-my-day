@@ -66,14 +66,10 @@ function createPlacesList() {
     var listLongitude = jQueryPlaces.children[i].getAttribute('data-longitude')
     var listLatitude = jQueryPlaces.children[i].getAttribute('data-latitude')
 
-    places.push({ lat: listLatitude, lng: listLongitude })
+    places.push({ lat: Number(listLatitude), lng: Number(listLongitude) })
 
    console.log(places)
-
-
-   
-
-
+   updateMap()
 
   }
 
