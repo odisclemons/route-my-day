@@ -4,7 +4,7 @@
 // Yelp api request
 
 
-var city = 'venice';
+var city = '';
 var businesses = [];
 var places = [];
 
@@ -38,10 +38,10 @@ var CitySearchFun = function (event) {
     return;
   }
 
-  city = CitySearch.value.trim();
+  city = SearchBox.value.trim();
   console.log(city)
 
-  // city1 = city
+
 
   
 
@@ -159,7 +159,7 @@ var bearer_token =
       let {name, url, display_phone, image_url} = data.businesses[i]
       if(!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
 
-      /* -------------------------------------------------------------------------- */
+      /* ----------------------------------Yelp Cards---------------------------------------- */
       var newBox = `
 <div class="card">
  
@@ -210,18 +210,6 @@ var bearer_token =
 
 }
 
-/* -------------------------- code to come back to -------------------------- */
-/* <div class="card-image">
-<figure class="image is-4by3">
-  <img src="${image_url}" alt="Placeholder image">
-</figure>
-</div> */
-
-
-
-
-
-  
 
 
 
