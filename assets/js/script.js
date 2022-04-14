@@ -11,6 +11,8 @@ var places = [];
 var CitySearch = document.querySelector('#Search-btn');
 var CitySubmit = document.querySelector('#Submit-btn');
 var SearchBox = document.querySelector('#Search-box');
+
+var JquerySubmit = document.querySelector('#jQuery-Submit')
 SearchBox.value = city;
 
 var busContainer = document.getElementById('bus')
@@ -24,6 +26,7 @@ var CatList = document.querySelector('#cat-list');
 
 
 var CitySearchFun = function (event) {
+
   event.preventDefault();
   if(!SearchBox.value || SearchBox.value.length < 2) {
     alert('You must specify a city.')
@@ -49,7 +52,38 @@ CitySubmit.addEventListener('click', CitySearchFun)
 
 
 
-/* -------------------------------------------------------------------------- */
+
+/* --------------------------- add to places list --------------------------- */
+
+function createPlacesList() {
+
+  var jQueryPlaces = document.querySelector('#sortable');
+
+  for (var i = 0; i <jQueryPlaces.children.length; i++) {
+
+    var listLongitude = jQueryPlaces.children[i].getAttribute('data-longitude')
+    var listLatitude = jQueryPlaces.children[i].getAttribute('data-latitude')
+
+    places.push({ lat: listLatitude, lng: listLongitude })
+
+   console.log(places)
+
+
+   
+
+
+
+  }
+
+
+
+
+}
+JquerySubmit.addEventListener('click', createPlacesList)
+
+
+
+// var language = event.target.getAttribute('data-language');
 
 
 
@@ -59,13 +93,27 @@ function handleAddClick(i){
   console.log(i)
   console.log(businesses[i])
   let {latitude, longitude} = businesses[i].coordinates
+  let {name, image_url} = businesses[i]
+  // adding to j query UI 
+
+  var newJquryuiItem = `
+
+     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>${name}</li>
+   
+     
+
+     
+      `
+      $('#sortable').append(newJquryuiItem)
+
+
 
   map = new google.maps.Map(document.getElementById("map"), {
     center: {lat: latitude, lng: longitude},
     zoom: 17,
   });
-
   places.push(businesses[i])
+  // replaces with places list {lat: latitude, lng: longitude}
 }
 
 
@@ -111,15 +159,46 @@ var bearer_token =
       let {name, url, display_phone, image_url} = data.businesses[i]
       if(!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
 
+      /* -------------------------------------------------------------------------- */
       var newBox = `
-      <div class="box">
-        <h3>${name}</h3>
-       <h3>Phone:${display_phone}</h3>
-
-        <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
-        <div> <img src="${image_url}" /> </div>
+<div class="card">
+ 
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="${image_url}" alt="Placeholder image">
+        </figure>
+      </div>
+      
+  
+      </div>
+    
+      <button class="modal-close is-large" aria-label="close"></button>
     </div>
-      `
+
+</div>
+
+
+      <div class="media-content">
+        <p class="title is-4">${name}</p>
+        <p class="subtitle is-6">${display_phone}</p>
+        <button class="js-modal-trigger" data-target="modal-js-example">
+        Open JS example modal
+      </button>
+      </div>
+    </div>
+
+    <div class="content">
+    <button name="btn-${i}" class="addToList" onclick="handleAddClick(${i})">Add to list</button>
+      <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
+  </div>
+</div> `
+
+     
       $('#bus').append(newBox)
     }
     });
@@ -130,6 +209,16 @@ var bearer_token =
 
 
 }
+
+/* -------------------------- code to come back to -------------------------- */
+/* <div class="card-image">
+<figure class="image is-4by3">
+  <img src="${image_url}" alt="Placeholder image">
+</figure>
+</div> */
+
+
+
 
 
   
@@ -170,9 +259,3 @@ $( function() {
 
 
 
-
-
-
-
-    
-          
