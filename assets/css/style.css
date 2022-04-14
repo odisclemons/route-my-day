@@ -145,13 +145,71 @@ select:invalid {
   /* margin: 1rem; */
 }
 
-.input {
-  width: 20%;
+.select {
+  border: solid 1px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.control-btn {
+  background-color: var(--main);
+  color: black;
+  border-color: var(--btnoutlinegreen) solid;
 }
 
 .map-img {
   display: flex;
   justify-content: flex-end;
+}
+
+.container-userapi {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.user-api {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+}
+
+.subtitle {
+  padding: 1rem;
+}
+
+.section-api{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.maps-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-header {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 40px;
+}
+
+.user-list {
+  border-top: solid black 1px;
+  margin-top: 3rem;
 }
 
 /* Styling for modal */
