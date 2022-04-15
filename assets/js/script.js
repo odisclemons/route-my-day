@@ -51,7 +51,7 @@ function handleAddClick(i) {
  
 
   var newJquryuiItem = `
-     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" id='#btn-id${i}' ></span>${name} <button onclick="removePlaceFromList()"  >remove</button></li>
+     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" id='#btn-id${i}' ></span>${name} <button onclick="removePlaceFromList()"  > remove </button></li>
     
 
     `
