@@ -191,7 +191,15 @@ function formCatList (event) {
   fetchApiData(category, city)
   
   $("#bus").show()
-  $("#section-results").show()
+  $("#section-results").show('linear', ()=>{
+
+    setTimeout(()=> {
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $("#section-results").offset().top
+    }, 500);
+    }, 500)
+      
+  })
   // $("#bus").show(()=> ResultsSection.scrollIntoView())
 
 }
