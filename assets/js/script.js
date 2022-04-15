@@ -14,6 +14,8 @@ var busContainer = document.getElementById('bus')
 
 var CatList = document.querySelector('#cat-list');
 
+var ResultsSection = document.querySelector('#results-section')
+
 /* --------------------------- add to places list --------------------------- */
 
 function createPlacesList() {
@@ -51,7 +53,7 @@ function handleAddClick(i) {
  
 
   var newJquryuiItem = `
-     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" id='#btn-id${i}' ></span>${name} <button onclick="removePlaceFromList()"  > remove </button></li>
+     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" id='#btn-id${i}' ></span>${name} <button onclick="removePlaceFromList()" class="button is-small is-rounded" style="background-color: #9681E6;">Remove</button></li>
     
 
     `
@@ -186,6 +188,8 @@ function formCatList (event) {
   fetchApiData(category, city)
   
   $("#bus").show()
+  $("#section-results").show()
+  // $("#bus").show(()=> ResultsSection.scrollIntoView())
 
 }
 
