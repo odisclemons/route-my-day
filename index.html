@@ -13,8 +13,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <!--Custom CSS-->
   <link rel="stylesheet" href="./assets/css/style.css" />
+  
+  <link rel="icon" type="image/ico" href="./assets/img/favicon.ico"/>
+
   <title>Route My Day</title>
-  <link rel="shortcut icon" type="image/ico" href="./assets/img/favicon.ico"/>
 </head>
 
 <body>
@@ -28,7 +30,7 @@
     <!-- </nav> -->
     <div class="header-button">
       <button class="button is-rounded is-medium header-btn js-modal-trigger actual-btn"
-        data-target="modal-js-example">About Us<i class="fas fa-user"></i></button>
+        data-target="modal-js-example">About Us <i class="fas fa-user"> </i></button>
 
       <button class="button is-rounded is-medium header-btn modal-contact-us actual-btn"
         data-target="modal-contact-us">Contact Us <i class="fas fa-address-card"></i></button>
@@ -49,8 +51,8 @@
           <p class="img-p">Fast and easy. Pick the spots and we'll route em.</p>
         </div>
         <div class="bck-div">
-          <a href="#map"><button class="button is-rounded is-large start-button" id="get-started" href="#map"> Get
-              Started! <i class="fas fa-running"></i></button></a>
+          <a href="#Submit-btn"><button class="button is-rounded is-large start-button" id="get-started" href="#map"> Get
+              Started!  <i class="fas fa-running"></i></button></a>
         </div>
       </div>
     </div>
@@ -97,7 +99,7 @@
       </div>
       <!------------------------------- Submit City ------------------------------->
       <div class="control center-btn">
-        <button class="button is-rounded is-large control-btn" id="Submit-btn">Submit<i class="fas fa-thumbs-up"></i></button>
+        <a href="#"><button class="button is-rounded is-large control-btn" id="Submit-btn">Submit <i class="fas fa-thumbs-up"></i></button></a> 
       </div>
       <br>
 
@@ -105,7 +107,7 @@
 
       <!--------------------- business rendered from the list --------------------->
 
-      <section class="section">
+      <section id="section-results" class="section">
         <div class="container-userapi">
           <div class="user-api">
             <div class="section-api">
@@ -130,7 +132,7 @@
               </ul>
 
             <!-- -------------------------- Jquery Submit BTN -------------------------- -->
-            <button class="button" style="display: block; margin: auto;" id="btn-done"><i class="fas fa-check-double"></i>Done</button>
+            <button class="button is-rounded" style="display: block; margin: auto; margin-top: 3rem; background-color: #9681E6;" id="btn-done"><i class="fas fa-check-double"></i> Route</button>
             </div>
           </div>
         </div>
@@ -182,18 +184,18 @@
           <div class="div-container">
             <div class="img-div-modal1">
               <img src="./assets/img/Group pic/timpic.png" alt="Profile pic" class="modal-img"
-                style="height: 200px; width: 175px;">
+                style="height: 200px; width: 200px;">
               <div class="hide">
                 <p>Tim McMullan</p>
-                <a href=""><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
+                <a href="https://github.com/TimMcMullan"><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
               </div>
             </div>
             <div class="img-div-modal2 justify-colmun">
-              <img src="./assets/img/Group pic/placeholder person.png" alt="Profile pic" class="modal-img"
-                style="height: 200px; width: 175px;">
+              <img src="./assets/img/Group pic/odis.png" alt="Profile pic" class="modal-img"
+                style="height: 200px; width: 200px;">
               <div class="hide">
                 <p>Odis Clemons</p>
-                <a href=""><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
+                <a href="https://github.com/odisclemons"><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
               </div>
             </div>
           </div>
@@ -201,7 +203,7 @@
           <div class="div-container">
             <div class="img-div-modal3">
               <img src="./assets/img/Group pic/me pic.jfif" alt="Profile pic" class="modal-img"
-                style="height: 200px; width: 175px;">
+                style="height: 200px; width: 200px;">
               <div class="hide">
                 <p>Phillip Pereira</p>
                 <a href="https://github.com/Phillip48"><button class="button is-rounded is-small github-btn"
@@ -209,11 +211,11 @@
               </div>
             </div>
             <div class="img-div-modal4">
-              <img src="./assets/img/Group pic/placeholder person.png" alt="Profile pic" class="modal-img"
-                style="height: 200px; width: 175px;">
+              <img src="./assets/img/Group pic/jesse.png" alt="Profile pic" class="modal-img"
+                style="height: 200px; width: 200px;">
               <div class="hide">
                 <p>Jesse Maun</p>
-                <a href=""><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
+                <a href="https://github.com/Jmaun22"><button class="button is-rounded is-small github-btn" id="get-started">GitHub</button></a>
               </div>
             </div>
           </div>
@@ -239,7 +241,7 @@
 </body>
 
 <!-- -------------------------- Jquery Submit BTN -------------------------- -->
-<div class="logoButton" id="jQuery-Submit"></div>
+<!--<div class="logoButton" id="jQuery-Submit"></div>-->
 
 
 <!--Jquery Link-->
