@@ -429,6 +429,19 @@ select:invalid {
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .control {
+    width: 50%;
+  }
+  .center-btn {
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 450px) {
   .img-p{ 
     font-size: 20px;
