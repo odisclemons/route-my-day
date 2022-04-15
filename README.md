@@ -4,16 +4,17 @@
 
  ## Link to website:
 
- [Link to live site](https://github.com/odisclemons/route-my-day)
+ [Link to live site](https://odisclemons.github.io/route-my-day/)
 
 
 
  ## Screen Shots of Websites:
  
- ![img1](https://github.com/odisclemons/route-my-day/blob/85dd3a8debad0efec12bb0080d58f401e733d77b/Screen%20Shot%202022-04-15%20at%2010.30.50%20AM.png)
- ![img2](https://github.com/odisclemons/route-my-day/blob/85dd3a8debad0efec12bb0080d58f401e733d77b/Screen%20Shot%202022-04-15%20at%2010.31.04%20AM.png)
- ![img3](https://github.com/odisclemons/route-my-day/blob/85dd3a8debad0efec12bb0080d58f401e733d77b/Screen%20Shot%202022-04-15%20at%2010.31.16%20AM.png
-)
+ ![img1](./img1.png)
+ >>
+ ![img2](./img2.png)
+ >>
+ ![img3](./img3.png)
  
 
  ## Description:
