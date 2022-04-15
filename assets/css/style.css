@@ -69,7 +69,7 @@ a {
 }
 
 
-.about-us-btn {
+.header-btn {
   color: black;
   background-color: var(--btnpurple);
   border-color: var(--btnoutlinegreen) solid;
@@ -278,6 +278,55 @@ select:invalid {
   background-position: center;
   cursor: pointer;
   border: none;
+  {
+    
+.contact-us-modal {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.div-container {
+  display: flex;
+}
+
+.img-div-modal1,
+.img-div-modal2,
+.img-div-modal3,
+.img-div-modal4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.github-btn {
+  background-color: var(--main);
+}
+
+.modal-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-haeder {
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+}
+
+.modal-img {
+  padding: 1rem;
+  border-radius: 15%;
+}
+
+/* .hide {
+  display: none;
+} */
+
+.modal-img:hover + .hide {
+  display: inline-block;
 }
 
 
@@ -311,4 +360,97 @@ select:invalid {
   width: 600px;
   border: .5rem solid black;
   border-radius: 1rem;
+}
+
+#bus {
+  display: none;
+}
+
+@media screen and (max-width: 1250px) {
+  .img-p{ 
+    font-size: 28px;
+  }
+  .img-header {
+    font-size: 90px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  #map {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 1075px) {
+  .background-container {
+    height: 1150px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .background-container {
+    height: 1000px;
+  }
+  .img-p{ 
+    font-size: 26px;
+  }
+  .img-header {
+    font-size: 70px;
+  }
+  #map {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 935px) {
+  #map {
+    width: 250px;
+    height: 250px;
+  }
+  .title.is-4{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 802px) {
+  .container-userapi{
+    flex-direction: column;
+    align-items: center;
+  }
+  .title {
+    padding: 1rem;
+  }
+  #map {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .main-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-button {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  .img-p{ 
+    font-size: 20px;
+    width: 80%;
+  }
+  .img-header {
+    font-size: 50px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  #sortable {
+    font-size: .7rem;
+  }
 }
