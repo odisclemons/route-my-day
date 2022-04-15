@@ -48,8 +48,12 @@ function handleAddClick(i) {
   let { name, image_url } = businesses[i]
   // adding to j query UI 
 
+ 
+
   var newJquryuiItem = `
-     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>${name}</li>
+     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" id='#btn-id${i}' ></span>${name} <button onclick="removePlaceFromList()"  > remove </button></li>
+    
+
     `
   $('#sortable').append(newJquryuiItem)
 
@@ -60,6 +64,17 @@ function handleAddClick(i) {
   });
   // places.push(businesses[i])
   // replaces with places list {lat: latitude, lng: longitude}
+}
+
+/* ------------------------------ remove button place list button ----------------------------- */
+
+function removePlaceFromList() {
+
+  console.log("are u working")
+  console.log(this.event.target.parentElement)
+  this.event.target.parentElement.remove()
+ 
+
 }
 
 
@@ -89,6 +104,7 @@ function fetchApiData(location1, city) {
     })
     .then(function (data) {
       businesses = data.businesses;
+      console.log(data)
       $('#bus').html(null)
 
       // render data
@@ -122,9 +138,10 @@ function fetchApiData(location1, city) {
                         <p class="subtitle is-6">${display_phone}</p>
                         <button class="modal-bussiness button is-rounded is-small yelp-btn" data-target="modal-trigger-card">Open PopUp</button>
                         <div class="content">
-                          <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})">Add to list</button>
+                          <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})"><i class="fas fa-plus-circle"></i>Add to list</button>
                           <br>
-                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
+                         
                         </div>
                       </div>
                     </div>
