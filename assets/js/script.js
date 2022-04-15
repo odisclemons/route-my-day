@@ -112,10 +112,12 @@ function fetchApiData(location1, city) {
       // render data
       for (var i = 0; i < 10; i++) {
 
-        let { name, url, display_phone, image_url } = data.businesses[i]
+        let { name, url, display_phone, image_url, rating } = data.businesses[i]
 
         // if no image, replace with generic placeholder
         if (!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+
+        console.log(data.businesses[i])
 
         /* ----------------------------------Yelp Cards---------------------------------------- */
         var newBox = `
@@ -137,6 +139,7 @@ function fetchApiData(location1, city) {
 
                       <div class="media-content">
                         <p class="title is-4">${name}</p>
+                        <p class="subtitle">Rating: ${rating}</p>
                         <p class="subtitle is-6">${display_phone}</p>
                         <button class="button is-rounded is-small yelp-btn" onclick="window.open('${url}', '_blank')">Website</button>
                         <div class="content">
