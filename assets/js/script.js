@@ -48,8 +48,12 @@ function handleAddClick(i) {
   let { name, image_url } = businesses[i]
   // adding to j query UI 
 
+ 
+
   var newJquryuiItem = `
-     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>${name}</li>
+     <li data-latitude='${latitude}' data-longitude='${longitude}' class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s" id='#btn-id${i}' ></span>${name} <button onclick="removePlaceFromList()"  >remove</button></li>
+    
+
     `
   $('#sortable').append(newJquryuiItem)
 
@@ -60,6 +64,17 @@ function handleAddClick(i) {
   });
   // places.push(businesses[i])
   // replaces with places list {lat: latitude, lng: longitude}
+}
+
+/* ------------------------------ remove button place list button ----------------------------- */
+
+function removePlaceFromList() {
+
+  console.log("are u working")
+  console.log(this.event.target.parentElement)
+  this.event.target.parentElement.remove()
+ 
+
 }
 
 
