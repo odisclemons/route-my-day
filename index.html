@@ -9,9 +9,12 @@
   <link rel="stylesheet" href="./assets/css/reset.CSS" />
   <!--BULMA link-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <!--Custom CSS-->
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Route My Day</title>
+  <link rel="shortcut icon" type="image/ico" href="./assets/img/favicon.ico"/>
 </head>
 
 <body>
@@ -25,13 +28,13 @@
     <!-- </nav> -->
     <div class="header-button">
       <button class="button is-rounded is-medium header-btn js-modal-trigger actual-btn"
-        data-target="modal-js-example">About Us</button>
+        data-target="modal-js-example">About Us<i class="fas fa-user"></i></button>
 
       <button class="button is-rounded is-medium header-btn modal-contact-us actual-btn"
-        data-target="modal-contact-us">Contact Us</button>
+        data-target="modal-contact-us">Contact Us <i class="fas fa-address-card"></i></button>
 
       <button class="button is-rounded is-medium header-btn js-modal-trigger actual-btn"
-        data-target="modal-something">Other Projects</button>
+        data-target="modal-something">Other Projects <i class="fas fa-project-diagram"></i></button>
     </div>
   </header>
 
@@ -47,7 +50,7 @@
         </div>
         <div class="bck-div">
           <a href="#map"><button class="button is-rounded is-large start-button" id="get-started" href="#map"> Get
-              Started!</button></a>
+              Started! <i class="fas fa-running"></i></button></a>
         </div>
       </div>
     </div>
@@ -94,7 +97,7 @@
       </div>
       <!------------------------------- Submit City ------------------------------->
       <div class="control center-btn">
-        <button class="button is-rounded is-large control-btn" id="Submit-btn">Submit</button>
+        <button class="button is-rounded is-large control-btn" id="Submit-btn">Submit<i class="fas fa-thumbs-up"></i></button>
       </div>
       <br>
 
@@ -127,7 +130,7 @@
               </ul>
 
             <!-- -------------------------- Jquery Submit BTN -------------------------- -->
-            <button class="button" style="display: block; margin: auto;" id="btn-done">Done</button>
+            <button class="button" style="display: block; margin: auto;" id="btn-done"><i class="fas fa-check-double"></i>Done</button>
             </div>
           </div>
         </div>
@@ -234,8 +237,10 @@
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
 </body>
+
 <!-- -------------------------- Jquery Submit BTN -------------------------- -->
 <div class="logoButton" id="jQuery-Submit"></div>
+
 
 <!--Jquery Link-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
