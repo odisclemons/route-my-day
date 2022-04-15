@@ -328,10 +328,10 @@ select:invalid {
   border-radius: 15%;
 }
 
-.hide {
+/* .hide {
   display: none;
   transition-delay: 2s;
-}
+} */
 
 .modal-img:hover + .hide {
   display: inline-block;
