@@ -350,16 +350,19 @@ select:invalid {
 #sortable {
   list-style-type: none;
   margin: 0;
+  margin-top: .25rem;
   padding: 0;
   width: 100%;
 }
 
 #sortable li {
-  margin: 0 3px 3px 3px;
-  padding: 0.4em;
+  margin: 0;
+  padding: 0;
   padding-left: 1.5em;
   font-size: 1.4em;
-  height: 20px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 #sortable li span {
