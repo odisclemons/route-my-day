@@ -138,7 +138,7 @@ function fetchApiData(location1, city) {
                       <div class="media-content">
                         <p class="title is-4">${name}</p>
                         <p class="subtitle is-6">${display_phone}</p>
-                        <button class="modal-bussiness button is-rounded is-small yelp-btn" data-target="modal-trigger-card">Open PopUp</button>
+                        <button class="button is-rounded is-small yelp-btn" onclick="window.open('${url}', '_blank')">Website</button>
                         <div class="content">
                           <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})"><i class="fas fa-plus-circle"></i>Add to list</button>
                           <br>
