@@ -1,11 +1,4 @@
-
-
-
 // Yelp api request
-
-
-
-var city = 'Orlando';
 
 var businesses = [];
 var places = [];
@@ -15,46 +8,11 @@ var CitySubmit = document.querySelector('#Submit-btn');
 var SearchBox = document.querySelector('#Search-box');
 
 var BtnDone = document.querySelector('#btn-done')
-SearchBox.value = city;
+SearchBox.value = "Orlando";
 
 var busContainer = document.getElementById('bus')
 
 var CatList = document.querySelector('#cat-list');
-
-
-/* ------------------------------- Search BTN ------------------------------- */
-
-
-
-
-var CitySearchFun = function (event) {
-
-  event.preventDefault();
-  if (!SearchBox.value || SearchBox.value.length < 2) {
-    alert('You must specify a city.')
-    return;
-  }
-
-  if (!CatList.value) {
-    alert('You must specify a category.')
-    return;
-  }
-
-  $("#bus").show()
-  city = SearchBox.value.trim();
-  console.log(city)
-
-
-
-
-
-}
-
-CitySubmit.addEventListener('click', CitySearchFun)
-
-
-
-
 
 /* --------------------------- add to places list --------------------------- */
 
@@ -105,22 +63,21 @@ function handleAddClick(i) {
 }
 
 
-
+// fetch data from Yelp
 function fetchApiData(location1, city) {
 
   var bearer_token =
     "KNzo5Qc9AI4wBhsJRiQb47rkb3LmpBO6LCIrWXFTEXnO9gAH0hUhvx7Em0iYsE1AQL3_FfHiq__AJaQawUsPl8TNjN747zm7XczRFIDVYIaUAmATp_LD8gdKvmdUYnYx";
 
-  // var city = 'toronto'
-  // var term1 = 'shopping'
-
-  console.log(city + "in fetchApiData")
+  console.log(city + " in fetchApiData")
 
 
   var url =
     'https://floating-headland-95050.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=' + city + '&term=' + location1;
-  // console.log(location1)
+
   var bearer = "Bearer " + bearer_token;
+
+// fetch data from Yelp
   fetch(url, {
     method: "GET",
     headers: {
@@ -131,91 +88,93 @@ function fetchApiData(location1, city) {
       return response.json();
     })
     .then(function (data) {
-
-      console.log(data);
-      console.log('is it working')
-
-      console.log(data.businesses[0].alias)
       businesses = data.businesses;
       $('#bus').html(null)
 
-
       // render data
-  for (var i = 0; i < 15; i++) {
+      for (var i = 0; i < 10; i++) {
 
         let { name, url, display_phone, image_url } = data.businesses[i]
+
+        // if no image, replace with generic placeholder
         if (!image_url) image_url = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
 
         /* ----------------------------------Yelp Cards---------------------------------------- */
         var newBox = `
-<div class="card card-yelp">
- 
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image" style="width: 128px">
-          <img src="${image_url}" alt="Placeholder image" class="yelp-img">
-        </figure>
-      </div>
-      
-  
-      </div>
-    
-      <!--<button class="modal-close is-large" aria-label="close"></button>-->
-    </div>
+                <div class="card card-yelp">
+                
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image" style="width: 128px">
+                          <img src="${image_url}" alt="Placeholder image" class="yelp-img">
+                        </figure>
+                      </div>
+                      
+                  
+                      </div>
+                    
+                      <!--<button class="modal-close is-large" aria-label="close"></button>-->
+                    </div>
 
-      <div class="media-content">
-        <p class="title is-4">${name}</p>
-        <p class="subtitle is-6">${display_phone}</p>
-        <button class="modal-bussiness button is-rounded is-small yelp-btn" data-target="modal-trigger-card">Open PopUp</button>
-        <div class="content">
-          <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})">Add to list</button>
-          <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        </div>
-      </div>
-    </div>
+                      <div class="media-content">
+                        <p class="title is-4">${name}</p>
+                        <p class="subtitle is-6">${display_phone}</p>
+                        <button class="modal-bussiness button is-rounded is-small yelp-btn" data-target="modal-trigger-card">Open PopUp</button>
+                        <div class="content">
+                          <button name="btn-${i}" class="addToList button is-rounded is-small yelp-btn" onclick="handleAddClick(${i})">Add to list</button>
+                          <br>
+                          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        </div>
+                      </div>
+                    </div>
 
-  </div>
-</div> `
-     
-      $('#bus').append(newBox)
-    }
-    });
+                  </div>
+                </div> `
 
-    // .catch((error) => console.log(error));
 
         $('#bus').append(newBox)
       }
-    });
-
-  // .catch((error) => console.log(error));
+    }).catch((error) => console.log('Error fetchin Yelp data:',error));
 
 }
 
+/* ------------------------------- Search BTN ------------------------------- */
+CitySubmit.addEventListener('click', formCatList)
 
-/* -------------------------- select from drop down ------------------------- */
-// grab text from elemnt that is selected
+
+/* -------------------------- Submit Button Code ------------------------- */
+// grab text from elemnt that is selected and fetch api data
 
 
-var formCatList = function (event) {
+function formCatList (event) {
   event.preventDefault();
+  if (!SearchBox.value || SearchBox.value.length < 2) {
+    alert('You must specify a city.')
+    return;
+  }
+
+  if (!CatList.value) {
+    alert('You must specify a category.')
+    return;
+  }
+
 
   var category = CatList.value.trim();
-
+  var city = SearchBox.value.trim();
+  
   console.log(category)
+  console.log(city)
 
-  if (city != null) {
+  fetchApiData(category, city)
+  
+  $("#bus").show()
 
-
-
-    fetchApiData(category, city)
-  }
 }
 
 
-
-CatList.addEventListener('change', formCatList);
+// if they change the dropdown, do query again with new option
+// CatList.addEventListener('change',formCatList);
 
 
 /* ------------------------------ Sortable list ----------------------------- */

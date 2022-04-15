@@ -63,6 +63,10 @@ async function updateMap() {
   // change the output of directions renderer to replace that map we just made
   directionsRenderer.setMap(map);
 
+
+  // this object contains options for google maps route method
+  // origin and destination will be first and last index of places array respectively
+  // waypoints will need some extra keys which is handled by getWayPoints function
   var routeOptions = {
     origin: places[0],
     destination: places[places.length - 1],
@@ -71,7 +75,7 @@ async function updateMap() {
     optimizeWaypoints: true,
   };
 
-
+// try to do this code block and if it fails, run the catch block to handle errors
   try {
     console.log('RouteOptions:', routeOptions)
     directionsService.route(routeOptions, (res, status) => {
