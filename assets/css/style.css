@@ -266,6 +266,11 @@ select:invalid {
   align-items: center;
 }
 
+.subtitle {
+  margin: .25rem;
+  padding: .25rem;
+}
+
 /* Styling for modal */
 .modal-header {
   font-weight: 600;
